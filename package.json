@@ -10,7 +10,17 @@
     "url": "https://github.com/nandordudas"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=18.15.0",
+    "pnpm": ">=8.1.0"
+  },
+  "scripts": {
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint --cache ."
+  },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.38.4",
+    "eslint": "^8.38.0",
     "typescript": "^5.0.4"
   }
 }
