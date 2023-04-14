@@ -16,11 +16,15 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
+  "postCreateCommand": {
+    "installGlobalDependencies": "npm install --global @antfu/ni bumpp taze",
+    "installDependencies": "pnpm install"
+  },
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
+        "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
         "ms-azuretools.vscode-docker",
         "mutantdino.resourcemonitor",
@@ -40,7 +44,28 @@
         ],
         "editor.wordWrapColumn": 120,
         "typescript.tsdk": "./node_modules/typescript/lib",
-        "typescript.updateImportsOnFileMove.enabled": "always"
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        // ESLint
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true,
+          "source.fixAll": false,
+          "source.organizeImports": false
+        },
+        "editor.formatOnSave": false,
+        "editor.formatOnSaveMode": "modificationsIfAvailable",
+        "editor.formatOnType": false,
+        "eslint.codeActionsOnSave.mode": "problems",
+        "eslint.validate": [
+          "html",
+          "javascript",
+          "json",
+          "json5",
+          "jsonc",
+          "markdown",
+          "typescript",
+          "vue",
+          "yaml"
+        ]
       }
     }
   }
